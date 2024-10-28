@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VENIA - Products Assignment</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Muli:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <nav class="main-nav">
+          <button id="menu-toggle" class="menu-toggle" aria-label="Toggle menu">
+            ☰
+          </button>
+          <a href="/" class="logo">VENIA</a>
+          <ul class="nav-links">
+            <li><a href="/" class="active">Home</a></li>
+            <li><a href="/women">Women</a></li>
+            <li><a href="/men">Men</a></li>
+            <li><a href="/smart-gear">Smart Gear</a></li>
+            <li><a href="/accessories">Accessories</a></li>
+          </ul>
+          <div class="cart">
+            <img
+              src="https://res.cloudinary.com/dpubfvqpt/image/upload/v1730106837/cart_bag_fhqvzl.png"
+              alt="Cart"
+              class="cart-icon"
+            />
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+
+    <section class="banner">
+    <div class="banner-content">
+      <h1>All Collections</h1>
+      <div class="line"></div>
+    </div>
+    <img
+      class="banner-image"
+      src="https://res.cloudinary.com/dpubfvqpt/image/upload/v1730106838/product_banner_eedz0c.jpg"
+      alt="Men's Outerwear"
+    />
+  </section>
+  
+      </section>
+
+      <section class="product-listing">
+        <div class="container">
+          <div class="breadcrumb" id="breadcrumb"></div>
+          <div class="results-count" id="results-count"></div>
+
+          <div class="content-wrapper">
+            <aside class="filters" id="filters-sidebar">
+              <div class="filters-header">
+                <h2>Filters</h2>
+                <button id="close-filters">×</button>
+              </div>
+              <div class="filter-group">
+                <h3>Category</h3>
+                <div id="category-filters"></div>
+              </div>
+              <div class="filter-group">
+                <h3>Price Range</h3>
+                <input
+                  type="range"
+                  id="price-range"
+                  min="0"
+                  max="1000"
+                  step="10"
+                  value="1000"
+                />
+                <output id="price-output">$1000</output>
+              </div>
+              <button id="apply-filters" class="apply-filters">
+                Apply Filters
+              </button>
+            </aside>
+
+            <div class="product-grid-wrapper">
+              <div class="sort-and-filter">
+                <button id="filter-toggle" class="filter-toggle">
+                  <img
+                    src="https://res.cloudinary.com/dpubfvqpt/image/upload/v1730138375/sliders_x0lvaz.svg"
+                    alt="Filter"
+                  />
+                  Filter Results
+                </button>
+                <div class="sort-dropdown">
+                  <select id="sort-select">
+                    <option value="">Sort Products</option>
+                    <option value="price-asc">Price: Low to High</option>
+                    <option value="price-desc">Price: High to Low</option>
+                  </select>
+                  <div class="sort-icons">
+                    <img
+                      src="https://res.cloudinary.com/dpubfvqpt/image/upload/v1730138432/arrow-up_1_rud2os.svg"
+                      alt="arrow-up"
+                    />
+                    <img
+                      src="https://res.cloudinary.com/dpubfvqpt/image/upload/v1730138357/arrow-down_tolb1i.svg"
+                      alt="Arrow-down"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div id="product-grid" class="product-grid"></div>
+              <button id="load-more-btn" class="load-more">Load More</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h4>Account</h4>
+            <ul>
+              <li><a href="#">Sign In</a></li>
+              <li><a href="#">Register</a></li>
+              <li><a href="#">Order Status</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>About Us</h4>
+            <ul>
+              <li><a href="#">Our Story</a></li>
+              <li><a href="#">Careers</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Help</h4>
+            <ul>
+              <li><a href="#">Contact Us</a></li>
+              <li><a href="#">Order Status</a></li>
+              <li><a href="#">Returns</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Follow Us!</h4>
+            <p>
+              Stay connected with us on social media! Follow us on Twitter for
+              the latest updates and news, like us on Facebook to engage with
+              our community and share your thoughts, and check out our Instagram
+              for behind-the-scenes looks and inspiration. Your support means
+              everything to us, and we'd love to hear from you!
+            </p>
+            <div class="social-icons">
+              <a href="#" aria-label="Instagram">
+                <img
+                  src="https://res.cloudinary.com/dpubfvqpt/image/upload/v1730106837/instagram_l23smj.png"
+                  alt="Instagram"
+                />
+              </a>
+              <a href="#" aria-label="Facebook">
+                <img
+                  src="https://res.cloudinary.com/dpubfvqpt/image/upload/v1730106837/facebook_krxq11.png"
+                  alt="Facebook"
+                />
+              </a>
+              <a href="#" aria-label="Twitter">
+                <img
+                  src="https://res.cloudinary.com/dpubfvqpt/image/upload/v1730106837/twitter_oavpyy.png"
+                  alt="Twitter"
+                />
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="logo">VENIA</div>
+          <p>
+            © Hayagreeva Consulting Pvt. Ltd., Mumbai, Maharashtra, Mumbai – 400
+            086
+          </p>
+          <div class="legal-links">
+            <a href="#">Terms of Use</a>
+            <a href="#">Privacy Policy</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
