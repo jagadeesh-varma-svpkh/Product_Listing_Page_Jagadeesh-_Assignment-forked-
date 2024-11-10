@@ -41,19 +41,44 @@
     </header>
 
     <main>
+      <section class="banner">
+        <div class="banner-content">
+          <h1>All Collections</h1>
+          <div class="line"></div>
+        </div>
+        <img
+          class="banner-image"
+          src="https://res.cloudinary.com/dpubfvqpt/image/upload/v1730106838/product_banner_eedz0c.jpg"
+          alt="Men's Outerwear"
+        />
+      </section>
 
-    <section class="banner">
-    <div class="banner-content">
-      <h1>All Collections</h1>
-      <div class="line"></div>
-    </div>
-    <img
-      class="banner-image"
-      src="https://res.cloudinary.com/dpubfvqpt/image/upload/v1730106838/product_banner_eedz0c.jpg"
-      alt="Men's Outerwear"
-    />
-  </section>
-  
+      <section class="search-section">
+        <div class="container">
+          <div class="search-container">
+            <input
+              type="text"
+              id="search-input"
+              placeholder="Search products..."
+            />
+            <button id="search-button">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+            </button>
+          </div>
+        </div>
       </section>
 
       <section class="product-listing">
@@ -100,8 +125,8 @@
                 <div class="sort-dropdown">
                   <select id="sort-select">
                     <option value="">Sort Products</option>
-                    <option value="price-asc">Price: Low to High</option>
-                    <option value="price-desc">Price: High to Low</option>
+                    <option value="price-asc">Price:Low to High</option>
+                    <option value="price-desc">Price:High to Low</option>
                   </select>
                   <div class="sort-icons">
                     <img

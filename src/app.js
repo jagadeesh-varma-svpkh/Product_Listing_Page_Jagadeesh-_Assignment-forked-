@@ -14,6 +14,8 @@ const closeFilters = document.getElementById("close-filters");
 const applyFilters = document.getElementById("apply-filters");
 const menuToggle = document.getElementById("menu-toggle");
 const navLinks = document.querySelector(".nav-links");
+const searchInput = document.getElementById("search-input");
+const searchButton = document.getElementById("search-button");
 
 // Global variables
 let products = [];
@@ -67,13 +69,19 @@ const updateProductGrid = () => {
   ].map((input) => input.value);
   const maxPrice = Number(priceRange.value);
   const sortOrder = sortSelect.value;
+  const searchTerm = searchInput.value.toLowerCase().trim();
 
   visibleProducts = products.filter((product) => {
     const matchesCategory =
       selectedCategories.length === 0 ||
       selectedCategories.includes(product.category);
     const matchesPrice = product.price <= maxPrice;
-    return matchesCategory && matchesPrice;
+    const matchesSearch =
+      searchTerm === "" ||
+      product.title.toLowerCase().includes(searchTerm) ||
+      product.description.toLowerCase().includes(searchTerm) ||
+      product.category.toLowerCase().includes(searchTerm);
+    return matchesCategory && matchesPrice && matchesSearch;
   });
 
   if (sortOrder === "price-asc") {
@@ -157,20 +165,12 @@ const updateBreadcrumb = (category = "") => {
 
 // Update results count
 const updateResultsCount = () => {
-  const selectedCategories = [
-    ...document.querySelectorAll(".category-filter:checked"),
-  ].map((input) => input.value);
+  resultsCount.textContent = `${visibleProducts.length} Products`;
+};
 
-  let totalProducts;
-  if (selectedCategories.length === 0) {
-    totalProducts = products.length;
-  } else {
-    totalProducts = products.filter((product) =>
-      selectedCategories.includes(product.category)
-    ).length;
-  }
-
-  resultsCount.textContent = `${totalProducts} Products`;
+// Perform search
+const performSearch = () => {
+  updateProductGrid();
 };
 
 // Event listeners
@@ -227,26 +227,13 @@ document.addEventListener("click", (event) => {
   }
 });
 
+// Search functionality
+searchButton.addEventListener("click", updateProductGrid);
+searchInput.addEventListener("keypress", (e) => {
+  if (e.key === "Enter") {
+    updateProductGrid();
+  }
+});
+
 // Initialize the page
 fetchProducts();
-
-// Implement lazy loading for images
-const lazyLoadImages = () => {
-  const imageObserver = new IntersectionObserver((entries, observer) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        const img = entry.target;
-        img.src = img.dataset.src;
-        img.removeAttribute("data-src");
-        imageObserver.unobserve(img);
-      }
-    });
-  });
-
-  document.querySelectorAll("img[data-src]").forEach((img) => {
-    imageObserver.observe(img);
-  });
-};
-
-// Call lazy loading after initial render
-window.addEventListener("load", lazyLoadImages);
